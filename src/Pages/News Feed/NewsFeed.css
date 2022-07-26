@@ -1,0 +1,56 @@
+.home{
+    width: 60%;
+    margin: 0 auto;
+}
+
+.imageContent{
+    margin: 0 auto;
+}
+
+.homeContainer{
+display: flex;
+column-gap: 40px;
+
+}
+
+.collections{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.collections img{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50px;
+    border: 3px solid rgb(0, 206, 130);
+}
+.collection{
+    text-align: center;
+    width: 60px;
+}
+
+.loader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .home {
+      width: 100%;
+    }
+    .users{
+        display: none;
+    }
+    .post{
+        width: 100vw !important;
+    }
+    .collections{
+        flex-wrap: wrap;
+    }
+  }

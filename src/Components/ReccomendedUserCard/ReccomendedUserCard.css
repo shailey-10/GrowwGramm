@@ -1,0 +1,10 @@
+.userCard h2{
+    font-size: 16px;
+    margin: 0;
+}
+.userCard p{
+    margin: 0;
+}
+.userCard{
+    margin-bottom: 30px;
+}

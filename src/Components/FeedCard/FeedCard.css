@@ -1,0 +1,51 @@
+.post{
+    width: 500px;
+    margin-bottom: 30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+}
+.post img{
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+}
+.user{
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.user img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+}
+
+.user p{
+    margin: 0;
+}
+
+.name{
+    font-weight: 600;
+}
+
+.location, .action-container{
+    padding: 15px;
+}
+
+.likes p{
+    font-weight: 600;
+}
+.desc{
+    font-weight: 400;
+}
+.post{
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.likes{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
