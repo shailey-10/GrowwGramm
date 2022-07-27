@@ -1,10 +1,10 @@
-import { SET_RECENT_USER } from "./UserTypes.tsx";
+import { SET_RECENT_USER } from "./UserTypes";
 
 const initialState = {
     recentUser : {}
 }
 
-const userReducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action: { type: any; payload: any; }) => {
     switch(action.type){
         case SET_RECENT_USER:
             return{

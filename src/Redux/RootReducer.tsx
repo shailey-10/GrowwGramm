@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import reducer from "./Search/SearchReducers.tsx";
-import userReducer from "./User/UserReducers.tsx";
+import reducer from "./Search/SearchReducers";
+import userReducer from "./User/UserReducers";
 
 const rootReducer = combineReducers({
     reducer: reducer,

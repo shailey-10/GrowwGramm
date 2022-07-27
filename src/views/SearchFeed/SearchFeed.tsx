@@ -1,16 +1,16 @@
 import React from 'react'
-import { connect } from 'react-redux'
-// @ts-ignore
-import FeedCard from '../../Components/FeedCard/FeedCard.tsx'
-// @ts-ignore
-import Loader from '../../Components/Loader/Loader.tsx'
-// @ts-ignore
-import ErrorPage from '../Error/ErrorPage.tsx'
+import { connect, useSelector } from 'react-redux'
+
+import FeedCard from '../../common/FeedCard/FeedCard'
+
+import Loader from '../../common/Loader/Loader'
+
+import ErrorPage from '../Error/ErrorPage'
 
 import './SearchFeed.css'
 
 
-function SearchFeed({searchData}) {
+function SearchFeed({searchData} : {searchData : any}) {
     const search : object[]  = searchData.reducer.search
     console.log(searchData.reducer)
   return (
@@ -31,7 +31,7 @@ function SearchFeed({searchData}) {
   )
 }
 
-const mapStateToProps = state =>{
+const mapStateToProps = (state : any) =>{
 
     return{
         searchData: state

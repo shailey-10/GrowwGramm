@@ -3,7 +3,7 @@ import './FeedCard.css'
 import { Link } from 'react-router-dom'
 import {FaRegBookmark} from 'react-icons/fa'
 
-function FeedCard({image}) {
+function FeedCard({image} : {image : any}) {
 
 
   return (

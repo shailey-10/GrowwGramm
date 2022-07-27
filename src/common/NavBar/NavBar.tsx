@@ -4,12 +4,10 @@ import { connect } from 'react-redux'
 import './NavBar.css'
 
 import {FaHome, FaHeart, FaUserCircle, FaSearch} from 'react-icons/fa'
-// @ts-ignore
-import { fetchSearch } from '../../Redux/Search/SearchAction.tsx'
+import { fetchSearch } from '../../redux/Search/SearchAction'
 import { useEffect } from 'react'
 
-
-function NavBar({searchData, fetchSearch}) { 
+function NavBar({fetchSearch} : {fetchSearch : any}) { 
 
   const [searchBar, setSearchbar] = useState(false);
   
@@ -26,9 +24,9 @@ function NavBar({searchData, fetchSearch}) {
     }
   }, [location])
 
-    const debounce = (func) => {
-      let timer;
-      return function (...args){
+    const debounce = (func: { (event: any): void; apply?: any }) => {
+      let timer: string | number | NodeJS.Timeout | null | undefined;
+      return function (this: unknown, ...args: any){
         const context = this;
         if(timer) clearTimeout(timer)
         timer = setTimeout(() => {
@@ -38,7 +36,7 @@ function NavBar({searchData, fetchSearch}) {
       }
     }
    
-    function search(event){
+    function search(event: { target: { value: any } }){
       fetchSearch(event.target.value)
     }
 
@@ -68,17 +66,17 @@ function NavBar({searchData, fetchSearch}) {
 
  
 }
-const mapStateToProps = state =>{
+const mapStateToProps = (state: any) =>{
     return{
         searchData: state
     }
     
 }
 
-const mapDispatchtoProps = dispatch => {
+const mapDispatchtoProps = (dispatch : any) => {
     console.log('fetching')
     return {
-        fetchSearch: (value) => dispatch(fetchSearch(value))
+        fetchSearch: (value: any) => dispatch(fetchSearch(value))
     }
 }
 

@@ -1,4 +1,4 @@
-import { FETCH_SEARCH_FALIURE, FETCH_SEARCH_REQUEST, FETCH_SEARCH_SUCCESS } from "./SearchTypes.tsx"
+import { FETCH_SEARCH_FALIURE, FETCH_SEARCH_REQUEST, FETCH_SEARCH_SUCCESS } from "./SearchTypes"
 
 const initialState = {
     loading : false,
@@ -6,7 +6,7 @@ const initialState = {
     error :''
 }
 
-const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action: { type: any; payload: any }) => {
         switch(action.type){
             case FETCH_SEARCH_REQUEST:
                 return{

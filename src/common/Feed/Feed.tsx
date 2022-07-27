@@ -1,9 +1,8 @@
 import React from 'react'
-// @ts-ignore
-import FeedCard from '../FeedCard/FeedCard.tsx'
+import FeedCard from '../FeedCard/FeedCard'
 
 
-function Feed(posts) {
+function Feed(posts: { posts: any[] }) {
     console.log(posts)
   return (
         <div className="imageFeed">
@@ -11,7 +10,7 @@ function Feed(posts) {
    
         <div className='posts-container'>
          {
-      posts.posts.map((image,i)  => (
+      posts.posts.map((image: any,i: React.Key | null | undefined)  => (
         <FeedCard image = {image} key = {i} /> 
       ))
     }

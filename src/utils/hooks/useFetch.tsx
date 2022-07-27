@@ -1,12 +1,13 @@
 import { useState , useEffect} from 'react'
 import axios from 'axios'
+import { User } from '../types/user'
 
-function useFetch(url, user, userUrl, collectionUrl) {
+function useFetch(url : string, user : boolean, userUrl : string, collectionUrl : string) {
 
   const [data, setData] : any = useState([])
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState('')
-  const [currentUser, setCurrentUser] = useState([])
+  const [error, setError] = useState<any>()
+  const [currentUser, setCurrentUser] = useState<User | undefined>()
   const [collections, setCollections] : any = useState([])
 
   useEffect(() => {
@@ -14,7 +15,6 @@ function useFetch(url, user, userUrl, collectionUrl) {
     if(user){
 
         fetchUser(userUrl,url);
-        // refetch(url, false)
         
       }else{
     const currentDate = new Date().getTime();
@@ -33,7 +33,7 @@ function useFetch(url, user, userUrl, collectionUrl) {
       else{
         let obj = localStorage.cachedPosts;
         // console.log(obj)
-        setData((prevPosts => [...JSON.parse(obj)]))
+        setData(([...JSON.parse(obj)]))
       }
     }else{
         refetch(url, true);
@@ -52,7 +52,7 @@ function useFetch(url, user, userUrl, collectionUrl) {
       else{
         let obj = localStorage.collections;
         // console.log(obj)
-        setCollections((prevPosts => [...JSON.parse(obj)]))
+        setCollections(([...JSON.parse(obj)]))
       }
     } else{
         fetchCollection(collectionUrl, true);
@@ -62,7 +62,7 @@ function useFetch(url, user, userUrl, collectionUrl) {
       
 },[url])
 
-const fetchCollection = (collectionUrl, first) => {
+const fetchCollection = (collectionUrl : string, first : boolean) => {
     setLoading(true);
    axios.get(collectionUrl)
     .then((res) => {
@@ -73,7 +73,7 @@ const fetchCollection = (collectionUrl, first) => {
           localStorage.setItem('collections', JSON.stringify(cache));
           setCollections(cache)
         }else{
-            setCollections(prevPosts => ([...res.data]))
+            setCollections(([...res.data]))
         }
         
        
@@ -94,7 +94,7 @@ const fetchCollection = (collectionUrl, first) => {
   }
 
 
-    const fetchUser = (userUrl, url) => {
+    const fetchUser = (userUrl : string, url : string) => {
         setLoading(true);
        axios.get(userUrl)
         .then((res) => {
@@ -112,7 +112,7 @@ const fetchCollection = (collectionUrl, first) => {
         })
       }
 
-  const refetch = (url, first) => {
+  const refetch = (url : string, first : boolean) => {
     setLoading(true);
    axios.get(url)
     .then((res) => {
@@ -124,7 +124,7 @@ const fetchCollection = (collectionUrl, first) => {
           localStorage.setItem('cachedPosts', JSON.stringify(cache));
           setData(cache)
         }else{
-            setData(prevPosts => ([...prevPosts, ...res.data]))
+            setData((prevPosts: any) => ([...prevPosts, ...res.data]))
         }
           const date = new Date().getTime().toString()
           localStorage.setItem('date', date);
@@ -137,7 +137,7 @@ const fetchCollection = (collectionUrl, first) => {
     })
   }
 
-  const collectionPhotos = (collectionPhotosUrl) => {
+  const collectionPhotos = (collectionPhotosUrl : string) => {
         setLoading(true);
        axios.get(collectionPhotosUrl)
         .then((res) => {   
@@ -152,7 +152,7 @@ const fetchCollection = (collectionUrl, first) => {
     
   }
 
-  return {data, loading, refetch, error , currentUser, fetchUser, collections, collectionPhotos}
+  return {data, loading, refetch, error , currentUser , fetchUser, collections, collectionPhotos} as const
 }
 
 export default useFetch

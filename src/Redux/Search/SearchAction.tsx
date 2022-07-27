@@ -1,32 +1,33 @@
-import { FETCH_SEARCH_FALIURE, FETCH_SEARCH_REQUEST, FETCH_SEARCH_SUCCESS } from "./SearchTypes.tsx"
+import { FETCH_SEARCH_FALIURE, FETCH_SEARCH_REQUEST, FETCH_SEARCH_SUCCESS } from "./SearchTypes"
 import axios from 'axios'
 
-export const fetchSearchRequest = () => {
+export const fetchSearchRequest = (req : any) => {
     return{
-        type: FETCH_SEARCH_REQUEST
+        type: FETCH_SEARCH_REQUEST,
+        payload : req
     }
 }
 
-export const fetchSearchSucccess = search => {
+export const fetchSearchSucccess = (search: any) => {
     return{
         type: FETCH_SEARCH_SUCCESS,
         payload: search
     }
 }
 
-export const fetchSearchFaliure = error => {
+export const fetchSearchFaliure = (error: any) => {
     return{
         type: FETCH_SEARCH_FALIURE,
         payload: error
     }
 }
 
-export const fetchSearch = (value) => {
+export const fetchSearch = (value: any) => {
     console.log(value)
     const apiRoot = "https://api.unsplash.com";
     const accessKey = process.env.REACT_APP_ACCESSKEY;
-    return (dispatch) => {
-        dispatch(fetchSearchRequest)
+    return (dispatch: (arg0: { type: string; payload: any }) => void) => {
+        dispatch(fetchSearchRequest(null))
         axios.get(`${apiRoot}/search/photos?page=1&query=${value}&client_id=${accessKey}`)
         .then(res => {
             const search = res.data.results

@@ -2,7 +2,7 @@ import React from 'react'
 
 import './GridCard.css'
 
-function GridCard(image) {
+function GridCard(image: { images: { urls: { regular: string | undefined } } }) {
   return (
     <div className='userPost'>
     

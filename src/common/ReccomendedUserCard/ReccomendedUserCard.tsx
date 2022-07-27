@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import './ReccomendedUserCard.css'
 
-function ReccomendedUserCard(user) {
+function ReccomendedUserCard(user: { user: any; }) {
 
     const currentUser = user.user
     let username = currentUser.username
