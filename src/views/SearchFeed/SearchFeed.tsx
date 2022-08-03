@@ -40,7 +40,7 @@ function SearchFeed({ searchData }: { searchData: any }) {
             </div>
           ))}
         </div>
-      ) : searchData.reducer.value.length > 0 && !searchData.reducer.loading ? (
+      ) : searchData.reducer.value && !searchData.reducer.loading ? (
         <p>No images found</p>
       ) : (
         <p>Please type some shit</p>
