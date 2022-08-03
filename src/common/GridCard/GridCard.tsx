@@ -1,14 +1,23 @@
-import React from 'react'
+import { Post } from "../../utils/types/post";
 
-import './GridCard.css'
+import "./GridCard.css";
 
-function GridCard(image: { images: { urls: { regular: string | undefined } } }) {
+type GridCardTypes = {
+  post: Post;
+  id: string;
+  handleView: (id: string) => void;
+};
+
+function GridCard(props: GridCardTypes) {
   return (
-    <div className='userPost'>
-    
-<img src = {image.images.urls.regular} alt = "post"/>
-</div>
-  )
+    <div className="grc132GridPost">
+      <img
+        src={props.post.urls.regular}
+        alt="post"
+        onClick={() => props.handleView(props.id)}
+      />
+    </div>
+  );
 }
 
-export default GridCard
+export default GridCard;

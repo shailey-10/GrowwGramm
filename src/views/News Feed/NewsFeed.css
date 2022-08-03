@@ -1,19 +1,19 @@
-.home{
+.nef123Home{
     width: 60%;
     margin: 0 auto;
 }
 
-.imageContent{
+.nef123ImageContent{
     margin: 0 auto;
 }
 
-.homeContainer{
+.nef123HomeContainer{
 display: flex;
 column-gap: 40px;
 
 }
 
-.collections{
+.nef123Collections{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -22,35 +22,35 @@ column-gap: 40px;
     margin-bottom: 30px;
 }
 
-.collections img{
+.nef123Collections img{
     width: 60px;
     height: 60px;
     object-fit: cover;
     border-radius: 50px;
     border: 3px solid rgb(0, 206, 130);
 }
-.collection{
+.nef123Collection{
     text-align: center;
     width: 60px;
 }
 
-.loader{
+.nef123Loader{
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 @media only screen and (max-width: 600px) {
-    .home {
+    .nef123Home {
       width: 100%;
     }
-    .users{
+    .nef123Users{
         display: none;
     }
     .post{
         width: 100vw !important;
     }
-    .collections{
+    .nef123Collections{
         flex-wrap: wrap;
     }
   }

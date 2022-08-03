@@ -1,46 +1,46 @@
-.profile{
+.usp123Profile{
     display: flex;
     padding: 0 350px;
     align-items: center;
 }
 
-.image{
+.usp123ProfileImage{
     width: 30%;
 }
 
-.image img{
+.usp123ProfileImage img{
     width: 70%;
     border-radius: 150px;
 }
 
-.numbers{
+.usp123UserData{
     display: flex;
     column-gap: 25px;
     margin: 10px 0;
 }
 
-.numbers p {
+.usp123UserData p {
     margin: 5px;
 }
 
-.userInfo{
+.usp123UserInfo{
     padding-left: 10px;
 }
 
-.data{
+.usp123Data{
     font-weight: 600;
 }
 
-.username{
+.usp123Username{
     font-size: 24px;
     margin: 5px 0;
 }
-.text p {
+.usp123UserContent p {
     margin-bottom: 10px;
     margin-top: 10px;
 }
 
-.gridView{
+.usp123GridView{
     display: flex;
     flex-wrap: wrap;
     width: 72%;
@@ -49,7 +49,7 @@
     row-gap: 10px;
 }
 
-.views{
+.usp123Views{
     display: flex;
     justify-content: center;
     column-gap: 50px;
@@ -58,22 +58,18 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .profile{
+    .usp123Profile{
         display: flex;
         padding: 5px 10px;
     }
-    .image{
+    .usp123ProfileImage{
         width: auto;
     }
-    .image img{
+    .usp123ProfileImage img{
         width: 90%;
     }
-    .userPost img {
-        height: 350px !important;
-        width: 100vw !important;
-        object-fit: cover;
-    }
-    .gridView{
+   
+    .usp123GridView{
         width: 100%;
     }
   }

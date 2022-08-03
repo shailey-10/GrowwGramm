@@ -1,26 +1,32 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import './ReccomendedUserCard.css'
+import { User } from "../../utils/types/collection";
 
-function ReccomendedUserCard(user: { user: any; }) {
+import "./ReccomendedUserCard.css";
 
-    const currentUser = user.user
-    let username = currentUser.username
-    console.log(username)
-    let bio;
-    if(currentUser.bio){
-    bio = currentUser.bio.slice(0,40)
-    }
+type UserProps = {
+  user: User;
+};
 
-    return (
-    <div className='userCard'>
-       <Link to = {'/user/'+username}> <h2>{currentUser.name}</h2> </Link>
-        <p>@{currentUser.username}</p>
-        <p>{bio}</p>
-        <p>Posts: {currentUser.total_photos}</p>
+function ReccomendedUserCard(props: UserProps) {
+  const currentUser = props.user;
+  let username = currentUser.username;
+  let bio;
+  if (currentUser.bio) {
+    bio = currentUser.bio.slice(0, 40);
+  }
+
+  return (
+    <div className="ruc123UserCard">
+      <Link to={"/user/" + username}>
+        {" "}
+        <h2>{currentUser.name}</h2>{" "}
+      </Link>
+      <p>@{currentUser.username}</p>
+      <p>{bio}</p>
+      <p>Posts: {currentUser.total_photos}</p>
     </div>
-  )
+  );
 }
 
-export default ReccomendedUserCard
+export default ReccomendedUserCard;

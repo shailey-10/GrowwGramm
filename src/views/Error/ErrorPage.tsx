@@ -1,17 +1,22 @@
-import React from 'react'
-import './ErrorPage.css'
+import { motion } from "framer-motion";
 
-function ErrorPage(error : any) {
-  console.log(error)
+import "./ErrorPage.css";
+
+function ErrorPage(error: any) {
   return (
-    <div className='error'>
+    <motion.div
+      className="error"
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerHeight }}
+    >
       <div>
-      <h2>Unable to complete the request</h2>
-      <p>Try again in some time!</p>
-      <p>{error.error}</p>
-    </div>
-    </div>
-  )
+        <h2>Unable to complete the request</h2>
+        <p>Try again in some time!</p>
+        <p>{error.error}</p>
+      </div>
+    </motion.div>
+  );
 }
 
-export default ErrorPage
+export default ErrorPage;

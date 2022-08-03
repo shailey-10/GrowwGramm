@@ -1,23 +1,38 @@
-import React from 'react'
-import FeedCard from '../FeedCard/FeedCard'
+import { animated as a } from "react-spring";
+import { TopTobottom } from "../../utils/animations/topToBottom";
 
+import { Post } from "../../utils/types/post";
+import { Search } from "../../utils/types/search";
+import FeedCard from "../FeedCard/FeedCard";
 
-function Feed(posts: { posts: any[] }) {
-    console.log(posts)
+import "./Feed.css";
+
+type PostProps = {
+  posts: Post[] | undefined;
+  search: Search[] | undefined;
+  toggleSaved: (posts: []) => void | undefined;
+};
+
+const Feed = (props: PostProps) => {
+  const animatedProps = TopTobottom();
+
   return (
-        <div className="imageFeed">
-      <div className="image-content">
-   
-        <div className='posts-container'>
-         {
-      posts.posts.map((image: any,i: React.Key | null | undefined)  => (
-        <FeedCard image = {image} key = {i} /> 
-      ))
-    }
+    <a.div style={{ ...animatedProps }} className="fed123ImageFeed">
+      <div className="fed123ImageContent">
+        <div className="fed123PostsContainer">
+          {props.posts?.map((post: Post, i) => (
+            <FeedCard
+              toggleSaved={props.toggleSaved}
+              search={undefined}
+              post={post}
+              id={i.toString()}
+              key={i}
+            />
+          ))}
         </div>
-        </div>
-    </div>
-  )
-}
+      </div>
+    </a.div>
+  );
+};
 
-export default Feed
+export default Feed;

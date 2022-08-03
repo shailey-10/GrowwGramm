@@ -1,19 +1,30 @@
-import React from 'react'
-// @ts-ignore
+import { animated as a } from "react-spring";
 
-import GridCard from '../GridCard/GridCard.tsx'
+import GridCard from "../GridCard/GridCard";
+import { Post } from "../../utils/types/post";
+import { TopTobottom } from "../../utils/animations/topToBottom";
 
-function GridFeed(posts: { posts: any[] }) {
-    console.log(posts)
+type GridProps = {
+  posts: Post[] | undefined;
+  handleView: (id: string) => void;
+};
+
+function GridFeed(props: GridProps) {
+  const animatedProps = TopTobottom();
+
   return (
     <>
-    {
-        posts.posts.map((image: any , i: React.Key | null | undefined) => (
-         <GridCard images = {image} key = {i}/>
-        ))
-      }
-      </>
-  )
+      {props.posts?.map((post, i) => (
+        <a.div style={{ ...animatedProps }} key={i}>
+          <GridCard
+            handleView={props.handleView}
+            post={post}
+            id={i.toString()}
+          />
+        </a.div>
+      ))}
+    </>
+  );
 }
 
-export default GridFeed
+export default GridFeed;

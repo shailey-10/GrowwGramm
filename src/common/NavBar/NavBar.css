@@ -1,39 +1,54 @@
-.nav{
+.nav123Bar{
     display: flex;
     align-items: center;
     justify-content: space-around;
     height: 60px;
     margin-bottom: 25px;
     width: 100vw;
+    position: sticky;
+    top: 0;
 }
-.actions{
+#dark .nav123Bar{
+    background-color: var(--secondary-background);
+}
+#light .nav123Bar{
+    background-color: var(--primary-background);
+}
+.nav123ActionsContainer{
     width: 20%;
     display: flex;
     align-items: center;
     font-size: 22px;
     column-gap: 25px;
 }
-.logo{
+.nav123Logo{
     width: 20%;
 }
-.search{
+.nav123SearchContainer{
     width: 40%;
     display: flex;
     align-items: center;
 }
-.search input{
+.nav123SearchContainer input{
     margin: 0 auto;
     width: 80%;
     height: 30px;
 }
-.logo img{
+
+#dark .nav123SearchContainer input{
+    background-color: #292929;
+    border: none;
+    color: white;
+}
+
+.nav123Logo img{
     height: 25px;
 }
 
-.searchBar{
+.nav123SearchBar{
     width: 100%;
 }
-.search-mobile{
+.nav123SearchMobile{
     display: none;
     width: 100%;
     align-items: center;
@@ -41,30 +56,33 @@
     margin-bottom: 30px;
 }
 
-.searchBar-mobile{
+.nav123SearchBarMobile{
     width: 80%;
 }
 
-.searchBar-mobile input{
+.nav123SearchBarMobile input{
     margin: 0 auto;
     width: 100%;
     height: 30px;
 }
 
 @media only screen and (max-width: 600px) {
-    .searchBar{
+    .nav123SearchBar{
         display: none;
     }
-    .searchBar, .logo, .actions{
+    .nav13SearchBar, .nav123Logo, .nav123ActionsContainer{
         width: auto;
     }
-    .logo{
+    .nav123Logo{
         padding: 0 10px;
     }
-    .actions{
+    .nav123ActionsContainer{
         padding-right: 5px;
+        column-gap: 10px;
     }
-    .search-mobile{
+    .nav123SearchMobile{
         display: flex;
+        
     }
+
   }

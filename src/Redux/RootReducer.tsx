@@ -3,8 +3,8 @@ import reducer from "./Search/SearchReducers";
 import userReducer from "./User/UserReducers";
 
 const rootReducer = combineReducers({
-    reducer: reducer,
-    userReducer: userReducer
-})
+  reducer: reducer,
+  userReducer: userReducer,
+});
 
-export default rootReducer
+export default rootReducer;

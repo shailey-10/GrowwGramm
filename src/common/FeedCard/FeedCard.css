@@ -1,51 +1,59 @@
-.post{
+.fec123Post{
     width: 500px;
-    margin-bottom: 30px;
-    background-color: rgb(255, 255, 255);
     border-radius: 20px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+
 }
-.post img{
+#light .fec123Post{
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+}
+#dark .fec123Post{
+    background-color: black;
+    overflow: hidden;
+}
+.fec123Post img{
     height: 500px;
     width: 100%;
     object-fit: cover;
 }
-.user{
+.fec123User{
     display: flex;
     align-items: center;
     column-gap: 20px;
 }
 
-.user img{
+.fec123User img{
     height: 50px;
     width: 50px;
     border-radius: 50px;
 }
 
-.user p{
+.fec123User p{
     margin: 0;
 }
 
-.name{
+.fec123Name, .fec123Likes p{
     font-weight: 600;
 }
 
-.location, .action-container{
+.fec123UserData{
     padding: 15px;
 }
 
-.likes p{
-    font-weight: 600;
-}
-.desc{
+.fec123Description{
     font-weight: 400;
 }
-.post{
-    margin: 0 auto;
-    margin-bottom: 30px;
-}
 
-.likes{
+.fec123Likes{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .fec123Post{
+        width: 100% !important;
+    }
 }

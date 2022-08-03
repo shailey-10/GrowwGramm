@@ -1,5 +1,13 @@
-.userPost img{
+.grc132GridPost img{
     height: 350px;
     width: 350px;
     object-fit: cover;
+}
+
+@media only screen and (max-width: 600px) {
+.grc132GridPost img {
+    height: 350px !important;
+    width: 100vw !important;
+    object-fit: cover;
+}
 }

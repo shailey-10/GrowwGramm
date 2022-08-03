@@ -1,42 +1,58 @@
-import React from 'react'
-import { connect, useSelector } from 'react-redux'
+import { connect } from "react-redux";
+import { motion } from "framer-motion";
 
-import FeedCard from '../../common/FeedCard/FeedCard'
+import FeedCard from "../../common/FeedCard/FeedCard";
+import Loader from "../../common/Loader/Loader";
+import { Search } from "../../utils/types/search";
+import ErrorPage from "../Error/ErrorPage";
 
-import Loader from '../../common/Loader/Loader'
+import "./SearchFeed.css";
 
-import ErrorPage from '../Error/ErrorPage'
+function SearchFeed({ searchData }: { searchData: any }) {
+  const search: Search[] = searchData.reducer.search;
+  console.log(searchData);
 
-import './SearchFeed.css'
-
-
-function SearchFeed({searchData} : {searchData : any}) {
-    const search : object[]  = searchData.reducer.search
-    console.log(searchData.reducer)
   return (
-    <div className='searchFeed'>
-    {searchData.reducer.loading ?
-        <div className="loader"> <Loader /> </div> : 
-        searchData.reducer.error ? 
-       (<ErrorPage error = {searchData.reducer.error} search = {true} />):
-       searchData.reducer.search.length > 0 ?
-       <div>
-     { search.map((image, i) => (
-        <FeedCard image = {image} key = {i} /> 
-      ))}
-    </div>
-       : <p>Please type some shit</p>
-       }
-       </div>
-  )
+    <motion.div
+      className="sef123SearchFeed"
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerHeight }}
+    >
+      {searchData.reducer.loading ? (
+        <div className="loader">
+          {" "}
+          <Loader />{" "}
+        </div>
+      ) : searchData.reducer.error ? (
+        <ErrorPage error={searchData.reducer.error} search={true} />
+      ) : searchData.reducer.search.length > 0 &&
+        !searchData.reducer.loading ? (
+        <div>
+          {search.map((searchPost, i) => (
+            <div key={i}>
+              <FeedCard
+                toggleSaved={() => {}}
+                post={undefined}
+                search={searchPost}
+                id={i.toString()}
+              />
+            </div>
+          ))}
+        </div>
+      ) : searchData.reducer.value.length > 0 && !searchData.reducer.loading ? (
+        <p>No images found</p>
+      ) : (
+        <p>Please type some shit</p>
+      )}
+    </motion.div>
+  );
 }
 
-const mapStateToProps = (state : any) =>{
+const mapStateToProps = (state: any) => {
+  return {
+    searchData: state,
+  };
+};
 
-    return{
-        searchData: state
-    }
-    
-}
-
-export default connect(mapStateToProps)(SearchFeed)
+export default connect(mapStateToProps)(SearchFeed);
