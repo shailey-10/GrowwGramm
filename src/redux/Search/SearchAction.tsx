@@ -6,14 +6,14 @@ import {
 
 import axios from "axios";
 
-export const fetchSearchRequest = (req: any) => {
+export const fetchSearchRequest = (req: null) => {
   return {
     type: FETCH_SEARCH_REQUEST,
     payload: req,
   };
 };
 
-export const fetchSearchSucccess = (search: any, value: string) => {
+export const fetchSearchSucccess = (search: [], value: string) => {
   return {
     type: FETCH_SEARCH_SUCCESS,
     payload: search,
@@ -21,17 +21,19 @@ export const fetchSearchSucccess = (search: any, value: string) => {
   };
 };
 
-export const fetchSearchFaliure = (error: any) => {
+export const fetchSearchFaliure = (error: string) => {
   return {
     type: FETCH_SEARCH_FALIURE,
     payload: error,
   };
 };
 
-export const fetchSearch = (value: any) => {
+export const fetchSearch = (value: string) => {
   const apiRoot = "https://api.unsplash.com";
   const accessKey = process.env.REACT_APP_ACCESSKEY;
-  return (dispatch: (arg0: { type: string; payload: any }) => void) => {
+  return (
+    dispatch: (arg0: { type: string; payload: [] | string | null }) => void
+  ) => {
     dispatch(fetchSearchRequest(null));
     axios
       .get(

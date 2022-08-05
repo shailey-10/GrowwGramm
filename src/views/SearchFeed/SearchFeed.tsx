@@ -10,7 +10,19 @@ import ErrorPage from "../Error/ErrorPage";
 
 import "./searchFeed.css";
 
-function SearchFeed({ searchData }: { searchData: any }) {
+type StateProps = {
+  reducer: {
+    error: string;
+    loading: boolean;
+    search: [];
+    value: {};
+  };
+  userReducer: {
+    recentUser: {};
+  };
+};
+
+function SearchFeed({ searchData }: { searchData: StateProps }) {
   const search: Search[] = searchData.reducer.search;
 
   return (
@@ -25,7 +37,7 @@ function SearchFeed({ searchData }: { searchData: any }) {
           <Loader />
         </div>
       ) : searchData.reducer.error ? (
-        <ErrorPage error={searchData.reducer.error} search={true} />
+        <ErrorPage error={searchData.reducer.error} />
       ) : searchData.reducer.search.length > 0 &&
         !searchData.reducer.loading ? (
         <div>
@@ -43,13 +55,13 @@ function SearchFeed({ searchData }: { searchData: any }) {
       ) : searchData.reducer.value && !searchData.reducer.loading ? (
         <p>No images found</p>
       ) : (
-        <p>Please type some shit</p>
+        <p>Please type something</p>
       )}
     </motion.div>
   );
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: StateProps) => {
   return {
     searchData: state,
   };

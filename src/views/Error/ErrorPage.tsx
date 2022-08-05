@@ -2,7 +2,11 @@ import { motion } from "framer-motion";
 
 import "./errorPage.css";
 
-function ErrorPage(error: any) {
+type ErrorProps = {
+  error: string;
+};
+
+function ErrorPage(props: ErrorProps) {
   return (
     <motion.div
       className="error"
@@ -13,7 +17,7 @@ function ErrorPage(error: any) {
       <div>
         <h2>Unable to complete the request</h2>
         <p>Try again in some time!</p>
-        <p>{error.error}</p>
+        <p>{props.error}</p>
       </div>
     </motion.div>
   );

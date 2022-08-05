@@ -9,7 +9,7 @@ import ErrorPage from "../Error/ErrorPage";
 import "./savedFeed.css";
 
 type Error = {
-  error: String;
+  error: string;
 };
 
 export const SavedFeed = () => {

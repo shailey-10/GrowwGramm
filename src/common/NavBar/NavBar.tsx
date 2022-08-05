@@ -10,7 +10,19 @@ import { ThemeContext, ThemeContextProps } from "../../App";
 
 import "./navBar.css";
 
-function NavBar({ fetchSearch }: { fetchSearch: any }) {
+type StateProps = {
+  reducer: {
+    error: string;
+    loading: boolean;
+    search: [];
+    value: {};
+  };
+  userReducer: {
+    recentUser: {};
+  };
+};
+
+function NavBar({ fetchSearch }: { fetchSearch: (value: string) => void }) {
   const [searchBar, setSearchbar] = useState(false);
   const { theme, toggleTheme } = useContext(ThemeContext) as ThemeContextProps;
   const location = useLocation();
@@ -35,7 +47,7 @@ function NavBar({ fetchSearch }: { fetchSearch: any }) {
     };
   };
 
-  function search(event: { target: { value: any } }) {
+  function search(event: { target: { value: string } }) {
     fetchSearch(event.target.value);
   }
 
@@ -46,35 +58,30 @@ function NavBar({ fetchSearch }: { fetchSearch: any }) {
       <div className="nav123Bar">
         <div className="nav123Logo">
           <Link to="/">
-            {" "}
-            <img src="./images/logo.png" id="nav123logo" alt="" />{" "}
+            <img src="./images/logo.png" id="nav123logo" alt="" />
           </Link>
         </div>
         <div className="nav123SearchContainer">
           <Link className="nav123SearchBar" to="/search">
-            {" "}
             <input
               type="text"
-              placeholder="search"
+              placeholder="Search"
               onChange={optimizedVersion}
-            />{" "}
+            />
           </Link>
         </div>
         <div className="nav123ActionsContainer">
           <Link to="/">
-            {" "}
-            <FaHome />{" "}
+            <FaHome />
           </Link>
           <Link to="/saved">
-            <FaHeart />{" "}
+            <FaHeart />
           </Link>
           <Link to="/recentUser">
-            {" "}
-            <FaUserCircle />{" "}
+            <FaUserCircle />
           </Link>
           <Link to="/search">
-            {" "}
-            <FaSearch />{" "}
+            <FaSearch />
           </Link>
           <ReactSwitch
             onChange={toggleTheme}
@@ -87,19 +94,18 @@ function NavBar({ fetchSearch }: { fetchSearch: any }) {
       {searchBar ? (
         <div className="nav123SearchMobile">
           <Link className="nav123SearchBarMobile" to="/search">
-            {" "}
             <input
               type="text"
               placeholder="search"
               onChange={optimizedVersion}
-            />{" "}
+            />
           </Link>
         </div>
       ) : null}
     </>
   );
 }
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: StateProps) => {
   return {
     searchData: state,
   };
@@ -107,7 +113,7 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchtoProps = (dispatch: any) => {
   return {
-    fetchSearch: (value: any) => dispatch(fetchSearch(value)),
+    fetchSearch: (value: string) => dispatch(fetchSearch(value)),
   };
 };
 

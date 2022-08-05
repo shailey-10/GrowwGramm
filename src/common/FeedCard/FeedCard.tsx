@@ -100,16 +100,18 @@ function FeedCard(props: CardProps) {
               ? props.post.likes
               : props.search
               ? props.search.likes
-              : null}{" "}
+              : null}
             Likes
           </p>
-          {props.post ? (
-            saved ? (
-              <FaBookmark onClick={addToSaved} />
-            ) : (
-              <FaRegBookmark onClick={addToSaved} />
-            )
-          ) : null}
+          <div className="nef123Save">
+            {props.post ? (
+              saved ? (
+                <FaBookmark onClick={addToSaved} />
+              ) : (
+                <FaRegBookmark onClick={addToSaved} />
+              )
+            ) : null}
+          </div>
         </div>
 
         <div className="fec123User">
@@ -139,7 +141,7 @@ function FeedCard(props: CardProps) {
                   ? props.post.user.username
                   : props.search
                   ? props.search.user.username
-                  : ""}{" "}
+                  : ""}
               </Link>
               <span className="fec123Description">
                 {props.post

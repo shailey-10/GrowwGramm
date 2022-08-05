@@ -12,7 +12,7 @@ const initialState = {
 
 const reducer = (
   state = initialState,
-  action: { type: any; payload: any; value: any }
+  action: { type: string; payload: [] | string | null; value: string }
 ) => {
   switch (action.type) {
     case FETCH_SEARCH_REQUEST:
