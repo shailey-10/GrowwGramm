@@ -1,11 +1,12 @@
 import { animated as a } from "react-spring";
-import { TopTobottom } from "../../utils/animations/topToBottom";
 
-import { Post } from "../../utils/types/post";
-import { Search } from "../../utils/types/search";
 import FeedCard from "../FeedCard/FeedCard";
 
-import "./Feed.css";
+import { TopTobottom } from "../../utils/animations/topToBottom";
+import { Post } from "../../utils/types/post";
+import { Search } from "../../utils/types/search";
+
+import "./feed.css";
 
 type PostProps = {
   posts: Post[] | undefined;

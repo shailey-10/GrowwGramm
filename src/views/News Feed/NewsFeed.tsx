@@ -3,13 +3,15 @@ import { animated as a } from "react-spring";
 
 import Loader from "../../common/Loader/Loader";
 import ReccomendedUserCard from "../../common/ReccomendedUserCard/ReccomendedUserCard";
-import { TopTobottom } from "../../utils/animations/topToBottom";
 import Collection from "./Collection/Collection";
 import Feed from "../../common/Feed/Feed";
+
 import useFetch from "../../utils/hooks/useFetch";
+import { TopTobottom } from "../../utils/animations/topToBottom";
+
 import ErrorPage from "../Error/ErrorPage";
 
-import "./NewsFeed.css";
+import "./newsFeed.css";
 
 function NewsFeed() {
   const apiRoot = "https://api.unsplash.com";
@@ -34,7 +36,6 @@ function NewsFeed() {
       Math.floor(Math.random() * (1 + 100 - 1)) + 1
     }&per_page=6`
   );
-  console.log(posts);
   const animatedProps = TopTobottom();
 
   window.onscroll = function () {
@@ -66,12 +67,7 @@ function NewsFeed() {
               {posts ? (
                 <Feed toggleSaved={() => {}} posts={posts} search={undefined} />
               ) : null}
-              {loading ? (
-                <div className="nef123Loader">
-                  {" "}
-                  <Loader />{" "}
-                </div>
-              ) : null}
+              {loading ? <Loader /> : null}
             </div>
             <div className="nef123Users">
               {posts && !loading ? <h2>Users You Might Like</h2> : null}
@@ -79,7 +75,7 @@ function NewsFeed() {
                 ? posts
                     .slice(0, 6)
                     .map((post, i) => (
-                      <ReccomendedUserCard user={post.user} key={i} />
+                      <ReccomendedUserCard user={post.user} key={post.id} />
                     ))
                 : null}
             </div>

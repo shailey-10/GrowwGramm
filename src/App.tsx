@@ -1,18 +1,21 @@
 import "./App.css";
 
 import { Provider } from "react-redux";
+
 import AppRoutes from "./router";
 import store from "./redux/Store";
+
 import { createContext, useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
+
 import NavBar from "./common/NavBar/NavBar";
 
-export type ThemeContext = {
+export type ThemeContextProps = {
   theme: string;
   toggleTheme: () => void;
 };
 
-export const ThemeContext = createContext<ThemeContext | null>(null);
+export const ThemeContext = createContext<ThemeContextProps | null>(null);
 
 function App() {
   const [theme, setTheme] = useState<string>("light");

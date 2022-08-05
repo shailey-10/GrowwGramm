@@ -1,18 +1,18 @@
-import { useState, useCallback, useContext } from "react";
+import { useState, useCallback, useContext, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+
 import { connect } from "react-redux";
 import { FaHome, FaHeart, FaUserCircle, FaSearch } from "react-icons/fa";
+import ReactSwitch from "react-switch";
 
 import { fetchSearch } from "../../redux/Search/SearchAction";
-import { useEffect } from "react";
-import ReactSwitch from "react-switch";
-import { ThemeContext } from "../../App";
+import { ThemeContext, ThemeContextProps } from "../../App";
 
-import "./NavBar.css";
+import "./navBar.css";
 
 function NavBar({ fetchSearch }: { fetchSearch: any }) {
   const [searchBar, setSearchbar] = useState(false);
-  const { theme, toggleTheme } = useContext(ThemeContext) as ThemeContext;
+  const { theme, toggleTheme } = useContext(ThemeContext) as ThemeContextProps;
   const location = useLocation();
 
   useEffect(() => {

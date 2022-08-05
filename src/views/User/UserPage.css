@@ -1,75 +1,85 @@
-.usp123Profile{
-    display: flex;
-    padding: 0 350px;
-    align-items: center;
+.usp123Profile {
+  display: flex;
+  padding: 0 350px;
+  align-items: center;
+  justify-content: center;
+  column-gap: 30px;
 }
 
-.usp123ProfileImage{
-    width: 30%;
+.usp123ProfileImage {
+  width: auto;
 }
 
-.usp123ProfileImage img{
-    width: 70%;
-    border-radius: 150px;
+.usp123ProfileImage img {
+  width: 100%;
+  border-radius: 150px;
 }
 
-.usp123UserData{
-    display: flex;
-    column-gap: 25px;
-    margin: 10px 0;
+.usp123UserData {
+  display: flex;
+  column-gap: 25px;
+  margin: 10px 0;
 }
 
 .usp123UserData p {
-    margin: 5px;
+  margin: 5px;
 }
 
-.usp123UserInfo{
-    padding-left: 10px;
+.usp123UserInfo {
+  width: auto;
 }
 
-.usp123Data{
-    font-weight: 600;
+.usp123Data {
+  font-weight: 600;
 }
 
-.usp123Username{
-    font-size: 24px;
-    margin: 5px 0;
+.usp123Username {
+  font-size: 24px;
+  margin: 5px 0;
 }
 .usp123UserContent p {
-    margin-bottom: 10px;
-    margin-top: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
-.usp123GridView{
-    display: flex;
-    flex-wrap: wrap;
-    width: 72%;
-    margin: 0 auto;
-    column-gap: 10px;
-    row-gap: 10px;
+.usp123GridView {
+  display: flex;
+  flex-wrap: wrap;
+  width: 72%;
+  margin: 0 auto;
+  column-gap: 10px;
+  row-gap: 10px;
 }
 
-.usp123Views{
-    display: flex;
-    justify-content: center;
-    column-gap: 50px;
-    font-size: 24px;
-    margin-bottom: 30px;
+.usp123Views {
+  display: flex;
+  justify-content: center;
+  column-gap: 50px;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.noUser {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 600px) {
-    .usp123Profile{
-        display: flex;
-        padding: 5px 10px;
-    }
-    .usp123ProfileImage{
-        width: auto;
-    }
-    .usp123ProfileImage img{
-        width: 90%;
-    }
-   
-    .usp123GridView{
-        width: 100%;
-    }
+  .usp123Profile {
+    display: inherit;
+    padding: 5px 10px;
   }
+  .usp123ProfileImage {
+    width: 35%;
+  }
+  .usp123ProfileImage img {
+    width: 90%;
+    border: 4px solid var(--accent);
+  }
+
+  .usp123GridView {
+    width: 100%;
+  }
+}

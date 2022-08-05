@@ -1,10 +1,11 @@
 import { Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+
 import NewsFeed from "../views/News Feed/NewsFeed";
 import SearchFeed from "../views/SearchFeed/SearchFeed";
 import UserPage from "../views/User/UserPage";
 import ErrorPage from "../views/Error/ErrorPage";
 import { SavedFeed } from "../views/SavedPage/SavedFeed";
-import { AnimatePresence } from "framer-motion";
 
 function AppRoutes() {
   const location = useLocation();

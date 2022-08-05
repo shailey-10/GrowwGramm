@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+
 import { User } from "../types/user";
 import { Post } from "../types/post";
 import { Collection } from "../types/collection";

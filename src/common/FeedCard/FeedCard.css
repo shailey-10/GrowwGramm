@@ -1,59 +1,59 @@
-.fec123Post{
-    width: 500px;
-    border-radius: 20px;
-    margin: 0 auto;
-    margin-bottom: 30px;
-
+.fec123Post {
+  width: 500px;
+  border-radius: 20px;
+  margin: 0 auto;
+  margin-bottom: 30px;
 }
-#light .fec123Post{
-    background-color: rgb(255, 255, 255);
-    overflow: hidden;
+#light .fec123Post {
+  background-color: rgb(255, 255, 255);
+  overflow: hidden;
 }
-#dark .fec123Post{
-    background-color: black;
-    overflow: hidden;
+#dark .fec123Post {
+  background-color: black;
+  overflow: hidden;
 }
-.fec123Post img{
-    height: 500px;
-    width: 100%;
-    object-fit: cover;
+.fec123Post img {
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
 }
-.fec123User{
-    display: flex;
-    align-items: center;
-    column-gap: 20px;
-}
-
-.fec123User img{
-    height: 50px;
-    width: 50px;
-    border-radius: 50px;
+.fec123User {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
 }
 
-.fec123User p{
-    margin: 0;
+.fec123User img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
 }
 
-.fec123Name, .fec123Likes p{
-    font-weight: 600;
+.fec123User p {
+  margin: 0;
 }
 
-.fec123UserData{
-    padding: 15px;
+.fec123Name,
+.fec123Likes p {
+  font-weight: 600;
 }
 
-.fec123Description{
-    font-weight: 400;
+.fec123UserData {
+  padding: 15px;
 }
 
-.fec123Likes{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.fec123Description {
+  font-weight: 400;
+}
+
+.fec123Likes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 @media only screen and (max-width: 600px) {
-    .fec123Post{
-        width: 100% !important;
-    }
+  .fec123Post {
+    width: 100% !important;
+  }
 }

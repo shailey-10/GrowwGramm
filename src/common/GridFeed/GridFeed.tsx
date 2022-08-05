@@ -1,6 +1,7 @@
 import { animated as a } from "react-spring";
 
 import GridCard from "../GridCard/GridCard";
+
 import { Post } from "../../utils/types/post";
 import { TopTobottom } from "../../utils/animations/topToBottom";
 
@@ -15,7 +16,7 @@ function GridFeed(props: GridProps) {
   return (
     <>
       {props.posts?.map((post, i) => (
-        <a.div style={{ ...animatedProps }} key={i}>
+        <a.div style={{ ...animatedProps }} key={post.id}>
           <GridCard
             handleView={props.handleView}
             post={post}

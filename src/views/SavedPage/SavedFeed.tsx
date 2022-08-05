@@ -3,9 +3,10 @@ import { motion } from "framer-motion";
 
 import Feed from "../../common/Feed/Feed";
 import Loader from "../../common/Loader/Loader";
+
 import ErrorPage from "../Error/ErrorPage";
 
-import "./SavedFeed.css";
+import "./savedFeed.css";
 
 type Error = {
   error: String;
@@ -67,7 +68,9 @@ export const SavedFeed = () => {
           />
         </div>
       ) : (
-        <Loader />
+        <div className="nef123loader">
+          <Loader />
+        </div>
       )}
     </motion.div>
   );

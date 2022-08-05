@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import { User } from "../../utils/types/collection";
 
-import "./ReccomendedUserCard.css";
+import "./reccomendedUserCard.css";
 
 type UserProps = {
   user: User;
@@ -19,11 +19,10 @@ function ReccomendedUserCard(props: UserProps) {
   return (
     <div className="ruc123UserCard">
       <Link to={"/user/" + username}>
-        {" "}
-        <h2>{currentUser.name}</h2>{" "}
+        <h2>{currentUser.name}</h2>
       </Link>
       <p>@{currentUser.username}</p>
-      <p>{bio}</p>
+      <p>{currentUser.bio?.length > 0 ? bio + ".." : null}</p>
       <p>Posts: {currentUser.total_photos}</p>
     </div>
   );

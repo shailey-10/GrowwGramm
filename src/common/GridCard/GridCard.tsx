@@ -1,6 +1,6 @@
 import { Post } from "../../utils/types/post";
 
-import "./GridCard.css";
+import "./gridCard.css";
 
 type GridCardTypes = {
   post: Post;

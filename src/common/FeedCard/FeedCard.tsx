@@ -6,7 +6,7 @@ import { Search } from "../../utils/types/search";
 import { useState, useEffect } from "react";
 import { BlurImg } from "../BlurHash";
 
-import "./FeedCard.css";
+import "./feedCard.css";
 
 type CardProps = {
   post: Post | undefined;
@@ -35,7 +35,6 @@ function FeedCard(props: CardProps) {
 
   const checkSavedPosts = (parsedPosts: []) => {
     const isFound = parsedPosts.some((element: { id: string | undefined }) => {
-      console.log(element.id, props.post?.id);
       if (element.id === props.post?.id) {
         return true;
       } else {
@@ -124,7 +123,7 @@ function FeedCard(props: CardProps) {
             }
             alt=""
           />
-          <div>
+          <>
             <p className="fec123Name">
               <Link
                 to={
@@ -150,9 +149,9 @@ function FeedCard(props: CardProps) {
                   : ""}
               </span>
             </p>
-          </div>
+          </>
         </div>
-        <div>
+        <>
           <p>
             {props.post
               ? props.post.created_at.toString().slice(0, 10)
@@ -160,7 +159,7 @@ function FeedCard(props: CardProps) {
               ? props.search.created_at.toString().slice(0, 10)
               : null}
           </p>
-        </div>
+        </>
       </div>
     </div>
   );

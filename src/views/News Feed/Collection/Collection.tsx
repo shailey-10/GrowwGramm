@@ -13,7 +13,7 @@ const Collection = (props: CollectionProps) => {
       {props.collections
         ? props.collections.map((collection, i) => (
             <div
-              key={i}
+              key={collection.id}
               className="nef123Collection"
               onClick={() =>
                 props.collectionPhotos(

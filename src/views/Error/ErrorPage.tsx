@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import "./ErrorPage.css";
+import "./errorPage.css";
 
 function ErrorPage(error: any) {
   return (

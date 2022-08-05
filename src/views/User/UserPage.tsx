@@ -1,16 +1,19 @@
 import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
+
 import { FaMapMarker, FaList } from "react-icons/fa";
 import { BsFillGrid3X3GapFill } from "react-icons/bs";
 
 import Feed from "../../common/Feed/Feed";
 import Loader from "../../common/Loader/Loader";
 import GridFeed from "../../common/GridFeed/GridFeed";
+
 import useFetch from "../../utils/hooks/useFetch";
+
 import ErrorPage from "../Error/ErrorPage";
 
-import "./UserPage.css";
+import "./userPage.css";
 
 function UserPage() {
   const apiRoot = "https://api.unsplash.com";
@@ -72,7 +75,6 @@ function UserPage() {
     setGridView(false);
     setPostId(id);
     document.body.scrollTop = document.documentElement.scrollTop = 0;
-    console.log(id.toString());
   };
 
   useEffect(() => {
@@ -101,11 +103,13 @@ function UserPage() {
       {error ? (
         <ErrorPage error={error.message} />
       ) : id === "null" ? (
-        <h3>No recent user, view some profiles!</h3>
+        <div className="noUser">
+          <h3>No recent user, view some profiles!</h3>
+        </div>
       ) : (
-        <div>
+        <>
           {user ? (
-            <div>
+            <>
               <div className="usp123Profile">
                 <div className="usp123ProfileImage">
                   {user?.profile_image ? (
@@ -116,24 +120,18 @@ function UserPage() {
                   <p className="usp123Username">{id}</p>
                   <div className="usp123UserData">
                     <p>
-                      {" "}
-                      <span className="usp123Data">
-                        {" "}
-                        {user?.total_photos}{" "}
-                      </span>{" "}
+                      <span className="usp123Data">{user?.total_photos}</span>
                       Posts
                     </p>
                     <p>
-                      {" "}
                       <span className="usp123Data">
-                        {user?.followers_count}{" "}
-                      </span>{" "}
+                        {user?.followers_count}
+                      </span>
                       Followers
                     </p>
                     <p>
-                      {" "}
                       <span className="usp123Data">
-                        {user?.following_count}{" "}
+                        {user?.following_count}
                       </span>
                       Following
                     </p>
@@ -150,7 +148,7 @@ function UserPage() {
                 </div>
               </div>
 
-              <div>
+              <>
                 <div className="usp123Views">
                   <FaList
                     onClick={() => {
@@ -163,8 +161,8 @@ function UserPage() {
                     }}
                   />
                 </div>
-              </div>
-            </div>
+              </>
+            </>
           ) : null}
 
           {userPosts ? (
@@ -180,14 +178,9 @@ function UserPage() {
             {gridView ? (
               <GridFeed handleView={handleView} posts={userPosts} />
             ) : null}
-            {loading ? (
-              <div className="loader">
-                {" "}
-                <Loader />{" "}
-              </div>
-            ) : null}
           </div>
-        </div>
+          {loading ? <Loader /> : null}
+        </>
       )}
     </motion.div>
   );

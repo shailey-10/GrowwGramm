@@ -3,14 +3,15 @@ import { motion } from "framer-motion";
 
 import FeedCard from "../../common/FeedCard/FeedCard";
 import Loader from "../../common/Loader/Loader";
+
 import { Search } from "../../utils/types/search";
+
 import ErrorPage from "../Error/ErrorPage";
 
-import "./SearchFeed.css";
+import "./searchFeed.css";
 
 function SearchFeed({ searchData }: { searchData: any }) {
   const search: Search[] = searchData.reducer.search;
-  console.log(searchData);
 
   return (
     <motion.div
@@ -20,9 +21,8 @@ function SearchFeed({ searchData }: { searchData: any }) {
       exit={{ x: window.innerHeight }}
     >
       {searchData.reducer.loading ? (
-        <div className="loader">
-          {" "}
-          <Loader />{" "}
+        <div className="nef123Loader">
+          <Loader />
         </div>
       ) : searchData.reducer.error ? (
         <ErrorPage error={searchData.reducer.error} search={true} />
@@ -30,7 +30,7 @@ function SearchFeed({ searchData }: { searchData: any }) {
         !searchData.reducer.loading ? (
         <div>
           {search.map((searchPost, i) => (
-            <div key={i}>
+            <div key={searchPost.id}>
               <FeedCard
                 toggleSaved={() => {}}
                 post={undefined}
